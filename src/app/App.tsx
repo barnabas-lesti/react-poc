@@ -8,11 +8,12 @@ import {
 import { useTranslation } from 'react-i18next';
 
 import './App.css';
-import { AboutUsPage } from '../pages/about-us/AboutUsPage';
+import { AboutUsPage } from '../pages/aboutUs/AboutUsPage';
 import { HomePage } from '../pages/home/HomePage';
 import { ItemPage } from '../pages/item/ItemPage';
 import { NotFound } from '../pages/not-found/NotFound';
 import { SearchPage } from '../pages/search/SearchPage';
+import { PrototypePage } from '../pages/prototype/PrototypePage';
 
 export function App() {
   const { t } = useTranslation();
@@ -31,6 +32,9 @@ export function App() {
             <li>
               <Link to='/search'>{t('header.search')}</Link>
             </li>
+            <li>
+              <Link to='/prototype'>{t('header.prototype')}</Link>
+            </li>
           </ul>
         </header>
         <main>
@@ -39,6 +43,7 @@ export function App() {
             <Route path='/about-us' element={<AboutUsPage />} />
             <Route path='/search' element={<SearchPage />} />
             <Route path='/item' element={<ItemPage />} />
+            <Route path='/prototype' element={<PrototypePage />} />
             <Route path='*' element={<NotFound />} />
           </Routes>
         </main>
@@ -52,6 +57,9 @@ export function App() {
             </li>
             <li>
               <Link to='/search'>{t('footer.search')}</Link>
+            </li>
+            <li>
+              <Link to='/prototype'>{t('footer.prototype')}</Link>
             </li>
           </ul>
         </footer>
