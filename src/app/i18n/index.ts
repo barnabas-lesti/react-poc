@@ -1,12 +1,11 @@
 import i18next from 'i18next';
 import { initReactI18next } from 'react-i18next';
 
-import { config } from '../config';
-import { en } from './resources/en';
-import { hu } from './resources/hu';
+import { en } from './en';
+import { hu } from './hu';
 
 export const languages = {
-  DEFAULT_LANGUAGE: config.DEFAULT_LANGUAGE,
+  DEFAULT_LANGUAGE: 'en',
   EN: 'en',
   HU: 'hu',
 };

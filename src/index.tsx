@@ -3,9 +3,10 @@ import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
 
 import './index.css';
-import './i18n';
+
+import './app/i18n';
 import { App } from './app/App';
-import { store } from './store'
+import { store } from './app/store'
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

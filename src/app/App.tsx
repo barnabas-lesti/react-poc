@@ -7,13 +7,9 @@ import {
 } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
+import { AboutUsPage, HomePage, ItemPage, NotFound, PrototypePage, SearchPage } from './pages';
+
 import './App.css';
-import { AboutUsPage } from '../pages/aboutUs/AboutUsPage';
-import { HomePage } from '../pages/home/HomePage';
-import { ItemPage } from '../pages/item/ItemPage';
-import { NotFound } from '../pages/not-found/NotFound';
-import { SearchPage } from '../pages/search/SearchPage';
-import { PrototypePage } from '../pages/prototype/PrototypePage';
 
 export function App() {
   const { t } = useTranslation();
