@@ -1,65 +1,42 @@
-import React from 'react';
+import { useEffect } from 'react';
 import {
-  BrowserRouter as Router,
   Routes,
   Route,
-  Link,
+  useLocation,
 } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
+import { useDispatch } from 'react-redux';
 
-import { AboutUsPage, HomePage, ItemPage, NotFound, PrototypePage, SearchPage } from './pages';
+import './App.scss';
 
-import './App.css';
+import { AboutUsPage, HomePage, ItemPage, NotFound, PrototypePage, SearchPage } from '../pages';
+import { AppHeader } from './AppHeader';
+import { AppFooter } from './AppFooter';
+import { closeSidebar } from '../store/common';
 
 export function App() {
-  const { t } = useTranslation();
+  const location = useLocation()
+  const dispatch = useDispatch()
+
+  // Router navigation event listener
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    dispatch(closeSidebar());
+  }, [location, dispatch]);
 
   return (
     <div className='App'>
-      <Router>
-        <header>
-          <ul>
-            <li>
-              <Link to='/'>{t('header.home')}</Link>
-            </li>
-            <li>
-              <Link to='/about-us'>{t('header.aboutUs')}</Link>
-            </li>
-            <li>
-              <Link to='/search'>{t('header.search')}</Link>
-            </li>
-            <li>
-              <Link to='/prototype'>{t('header.prototype')}</Link>
-            </li>
-          </ul>
-        </header>
-        <main>
-          <Routes>
-            <Route path='/' element={<HomePage />} />
-            <Route path='/about-us' element={<AboutUsPage />} />
-            <Route path='/search' element={<SearchPage />} />
-            <Route path='/item' element={<ItemPage />} />
-            <Route path='/prototype' element={<PrototypePage />} />
-            <Route path='*' element={<NotFound />} />
-          </Routes>
-        </main>
-        <footer>
-          <ul>
-            <li>
-              <Link to='/'>{t('footer.home')}</Link>
-            </li>
-            <li>
-              <Link to='/about-us'>{t('footer.aboutUs')}</Link>
-            </li>
-            <li>
-              <Link to='/search'>{t('footer.search')}</Link>
-            </li>
-            <li>
-              <Link to='/prototype'>{t('footer.prototype')}</Link>
-            </li>
-          </ul>
-        </footer>
-      </Router>
+      <AppHeader />
+      <main className='App__content'>
+        <Routes location={location}>
+          <Route path='/' element={<HomePage />} />
+          <Route path='/about-us' element={<AboutUsPage />} />
+          <Route path='/search' element={<SearchPage />} />
+          <Route path='/item' element={<ItemPage />} />
+          <Route path='/prototype' element={<PrototypePage />} />
+          <Route path='*' element={<NotFound />} />
+        </Routes>
+      </main>
+      <AppFooter />
     </div>
   );
 }

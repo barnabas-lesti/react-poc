@@ -1,10 +1,10 @@
 import React from 'react';
 
-import './NotFound.css';
+import './NotFound.scss';
 
 export function NotFound() {
   return (
-    <div className="NotFound">
+    <div className='NotFound'>
       NotFound
     </div>
   );

@@ -1,0 +1,27 @@
+.AppHeader {
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.1);
+  background-color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  font-size: 0;
+
+  &__mobileMenuIcon {
+    font-size: 26px;
+  }
+
+  &__brand {
+    height: 26px;
+  }
+
+  &__sidebarLink {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    display: block;
+  }
+}

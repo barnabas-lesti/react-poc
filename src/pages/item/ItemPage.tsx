@@ -1,10 +1,10 @@
 import React from 'react';
 
-import './ItemPage.css';
+import './ItemPage.scss';
 
 export function ItemPage() {
   return (
-    <div className="ItemPage">
+    <div className='ItemPage'>
       ItemPage
     </div>
   );
