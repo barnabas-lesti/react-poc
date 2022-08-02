@@ -1,0 +1,9 @@
+.AppNavLink {
+  text-decoration: none;
+  color: #555555;
+  font-weight: bold;
+
+  &:hover, &--active {
+    color: #000000;
+  }
+}

@@ -1,10 +1,10 @@
 import React from 'react';
 
-import './SearchPage.css';
+import './SearchPage.scss';
 
 export function SearchPage() {
   return (
-    <div className="SearchPage">
+    <div className='SearchPage'>
       SearchPage
     </div>
   );

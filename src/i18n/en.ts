@@ -1,6 +1,6 @@
 export const en = {
   translation: {
-    header: {
+    sidebar: {
       home: 'Home',
       aboutUs: 'About Us',
       search: 'Search',

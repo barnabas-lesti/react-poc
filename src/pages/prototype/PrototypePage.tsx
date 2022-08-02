@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import './PrototypePage.css';
+import './PrototypePage.scss';
 
 import { StateInterface } from '../../store';
 import { decrement, increment } from '../../store/counter';
@@ -13,7 +13,7 @@ export function PrototypePage() {
   useEffect(() => {
     console.log(count);
   }, [count]);
-  
+
   return (
     <div className='PrototypePage'>
       <p>Counter: {count}</p>
