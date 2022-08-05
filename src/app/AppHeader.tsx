@@ -1,43 +1,19 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import './AppHeader.scss';
-import brandLogo from '../assets/brand-logo.svg';
-import { AppNavLink } from './AppNavLink';
-import { MobileSidebar } from '../common/MobileSidebar';
-import { SearchForm } from '../common/SearchForm';
-import { commonActions } from '../store/slices/common';
-
-const mobileSidebarLinks: Array<{ to: string, labelKey: string }> = [
-  { to: '/',          labelKey: 'sidebar.home' },
-  { to: '/about-us',  labelKey: 'sidebar.aboutUs' },
-  { to: '/search',    labelKey: 'sidebar.search' },
-  { to: '/prototype', labelKey: 'sidebar.prototype' },
-];
+import brandLogo from './brand-logo.svg';
+import { openSidebar } from './app-state';
+import { useAppDispatch } from '../store/hooks';
 
 export function AppHeader() {
-  const sidebarName = 'AppHeaderMobileSidebar';
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   return (
     <header className='AppHeader'>
-      <MobileSidebar name={sidebarName}>
-        <SearchForm
-          onSubmit={() => navigate('/search')}
-          className='AppHeader__searchForm'
-        />
-        <nav>
-          {mobileSidebarLinks.map(({ to, labelKey }, index) => (
-            <AppNavLink className='AppHeader__sidebarLink' key={index} to={to} labelKey={labelKey} />
-          ))}
-        </nav>
-      </MobileSidebar>
-
       <span
         className='AppHeader__mobileMenuIcon AppHeader__icon material-icons'
-        onClick={() => dispatch(commonActions.openSidebar({ sidebarName }))}
+        onClick={() => dispatch(openSidebar())}
       >
         menu
       </span>

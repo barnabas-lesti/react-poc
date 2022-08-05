@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 
-import './TextInput.scss';
+import './CommonTextInput.scss';
 
-interface TextInputPropsInterface {
+interface CommonTextInputPropsInterface {
   value?: string;
   className?: string;
   icon?: string;
@@ -11,7 +11,7 @@ interface TextInputPropsInterface {
   onIconClick?: (value: string) => void;
 }
 
-export function TextInput({ value = '', className, icon, disabled, onChange, onIconClick }: TextInputPropsInterface) {
+export function CommonTextInput({ value = '', className, icon, disabled, onChange, onIconClick }: CommonTextInputPropsInterface) {
   const [ inputValue, setInputValue ] = useState(value);
 
   useEffect(() => {
@@ -20,10 +20,10 @@ export function TextInput({ value = '', className, icon, disabled, onChange, onI
 
   return (
     <div
-      className={'TextInput' + (className ? ` ${className}` : '')}
+      className={'CommonTextInput' + (className ? ` ${className}` : '')}
     >
       <input
-        className={'TextInput__input' + (icon ? ' TextInput__input--withIcon' : '')}
+        className={'CommonTextInput__input' + (icon ? ' CommonTextInput__input--withIcon' : '')}
         type='text'
         disabled={disabled}
         value={inputValue}
@@ -34,7 +34,7 @@ export function TextInput({ value = '', className, icon, disabled, onChange, onI
       />
       {icon && (
         <span
-          className='TextInput__inputIcon material-icons'
+          className='CommonTextInput__inputIcon material-icons'
           onClick={() => !disabled && onIconClick && onIconClick(inputValue)}
         >
           {icon}

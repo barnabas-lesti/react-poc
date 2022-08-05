@@ -4,36 +4,33 @@ import {
   Route,
   useLocation,
 } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
 
 import './App.scss';
 
-import { AboutUsPage, HomePage, ItemPage, NotFound, PrototypePage, SearchPage } from '../pages';
 import { AppHeader } from './AppHeader';
 import { AppFooter } from './AppFooter';
-import { commonActions } from '../store/slices/common';
+import { AppMobileSidebar } from './AppMobileSidebar';
+import { appRoutes } from './app-routes';
+import { closeSidebar } from './app-state';
+import { useAppDispatch } from '../store/hooks';
 
 export function App() {
   const location = useLocation()
-  const dispatch = useDispatch()
+  const dispatch = useAppDispatch()
 
   // Router navigation event listener
   useEffect(() => {
     window.scrollTo(0, 0);
-    dispatch(commonActions.closeSidebar());
+    dispatch(closeSidebar());
   }, [location, dispatch]);
 
   return (
     <div className='App'>
+      <AppMobileSidebar />
       <AppHeader />
       <main className='App__content'>
         <Routes location={location}>
-          <Route path='/' element={<HomePage />} />
-          <Route path='/about-us' element={<AboutUsPage />} />
-          <Route path='/search' element={<SearchPage />} />
-          <Route path='/item' element={<ItemPage />} />
-          <Route path='/prototype' element={<PrototypePage />} />
-          <Route path='*' element={<NotFound />} />
+          {appRoutes.map(({ path, Page }, index) => (<Route key={index} path={path} element={<Page />} />))}
         </Routes>
       </main>
       <AppFooter />

@@ -2,15 +2,15 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 import './AppFooter.scss';
-import brandLogo from '../assets/brand-logo.svg';
+import brandLogo from './brand-logo.svg';
 
 import { AppNavLink } from './AppNavLink';
 
 const footerLinks: Array<{ to: string, labelKey: string }> = [
-  { to: '/',          labelKey: 'footer.home' },
-  { to: '/about-us',  labelKey: 'footer.aboutUs' },
-  { to: '/search',    labelKey: 'footer.search' },
-  { to: '/prototype', labelKey: 'footer.prototype' },
+  { to: '/',          labelKey: 'app.footer.home' },
+  { to: '/about-us',  labelKey: 'app.footer.aboutUs' },
+  { to: '/search',    labelKey: 'app.footer.search' },
+  { to: '/prototype', labelKey: 'app.footer.prototype' },
 ];
 
 export function AppFooter() {

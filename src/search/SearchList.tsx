@@ -2,15 +2,10 @@ import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import './SearchList.scss';
-import { Loader } from '../../common/Loader';
+import { CommonLoader } from '../common/CommonLoader';
 import { SearchListItem } from './SearchListItem';
-import { searchActions } from '../../store/slices/search';
-import { useAppDispatch, useAppSelector } from '../../store/hooks';
-
-const mockItems = [
-  { id: 1, name: 'lofasz' },
-  { id: 2, name: 'lofasz2' },
-];
+import { useAppDispatch, useAppSelector } from '../store/hooks';
+import { fetchItems } from './search-state';
 
 export function SearchList() {
   const { t } = useTranslation();
@@ -19,25 +14,14 @@ export function SearchList() {
 
   // Search event handler
   useEffect(() => {
-    const loadMockItems = async () => {
-      dispatch(searchActions.startLoading());
-      const items = await new Promise<any>((resolve) => {
-        setTimeout(() => {
-          resolve(mockItems);
-        }, 500);
-      });
-      dispatch(searchActions.setItems({ items }));
-      dispatch(searchActions.stopLoading());
-    }
-
-    loadMockItems();
+    dispatch(fetchItems())
   }, [dispatch, searchString]);
 
   return (
     <div className='SearchList'>
       {isSearchInProgress ? (
         <div className="SearchList__loaderContainer">
-          <Loader />
+          <CommonLoader />
         </div>
       ) : (
         items && (items.length > 0) ? (
@@ -51,7 +35,7 @@ export function SearchList() {
             ))}
           </div>
         ) : (
-          <div className="SearchList__noItems">{t('pages.search.noItems')}</div>
+          <div className="SearchList__noItems">{t('search.list.noItems')}</div>
         )
       )}
     </div>

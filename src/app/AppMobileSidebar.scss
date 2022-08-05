@@ -1,4 +1,4 @@
-.MobileSidebar {
+.AppMobileSidebar {
   position: fixed;
   top: 0;
   left: 0;
@@ -27,6 +27,16 @@
 
   &__content {
     padding: 1rem;
+  }
+
+  &__link {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  &__searchForm {
+    margin-bottom: 1rem;
   }
 
   &--open {

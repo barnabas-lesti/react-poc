@@ -1,7 +1,7 @@
 import React from 'react';
 
 import './SearchPage.scss';
-import { SearchForm } from '../../common/SearchForm';
+import { SearchForm } from './SearchForm';
 import { SearchList } from './SearchList';
 
 export function SearchPage() {

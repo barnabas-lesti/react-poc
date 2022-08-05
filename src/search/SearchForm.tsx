@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../store/hooks';
-import { searchActions } from '../store/slices/search';
+import { setSearchString } from './search-state';
 
 import './SearchForm.scss';
-import { TextInput } from './TextInput';
+import { CommonTextInput } from '../common/CommonTextInput';
 
 interface SearchFormPropsInterface {
   onSubmit?: (searchString: string) => void;
@@ -17,7 +17,7 @@ export function SearchForm({ onSubmit = () => {}, className }: SearchFormPropsIn
 
   const handleSearch = (searchString: string) => {
     if (!isSearchInProgress) {
-      dispatch(searchActions.setSearchString({ searchString }));
+      dispatch(setSearchString(searchString));
       onSubmit(searchString);
     }
   }
@@ -34,7 +34,7 @@ export function SearchForm({ onSubmit = () => {}, className }: SearchFormPropsIn
         handleSearch(inputValue);
       }}
     >
-      <TextInput
+      <CommonTextInput
         icon='search'
         value={inputValue}
         disabled={isSearchInProgress}

@@ -15,12 +15,6 @@
     color: #000000;
   }
 
-  &__sidebarLink {
-    font-size: 1rem;
-    margin-bottom: 1rem;
-    display: block;
-  }
-
   &__brand {
     height: 26px;
     margin-left: 1rem;
@@ -34,9 +28,5 @@
 
   &__searchIconLink {
     margin-right: .5rem;
-  }
-
-  &__searchForm {
-    margin-bottom: 1rem;
   }
 }

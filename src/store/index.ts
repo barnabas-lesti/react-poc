@@ -1,16 +1,14 @@
 import { configureStore } from '@reduxjs/toolkit'
-import thunk from 'redux-thunk';
 
-import { commonReducer } from './slices/common';
-import { searchReducer } from './slices/search';
+import { appReducer } from '../app/app-state';
+import { searchReducer } from '../search/search-state';
 
 export const store = configureStore({
   reducer: {
-    common: commonReducer,
+    app: appReducer,
     search: searchReducer,
   },
-  middleware: [thunk],
 });
 
-export type StateInterface = ReturnType<typeof store.getState>;
+export type AppRootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
