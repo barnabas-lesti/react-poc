@@ -2,10 +2,10 @@ import React from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 
 import './AppMobileSidebar.scss';
-import brandLogo from './brand-logo.svg';
+import brandLogo from './appBrandLogo.svg';
 
 import { useAppDispatch, useAppSelector } from '../store/hooks';
-import { closeSidebar } from './app-state';
+import { closeSidebar } from './appState';
 import { SearchForm } from '../search/SearchForm';
 import { AppNavLink } from './AppNavLink';
 

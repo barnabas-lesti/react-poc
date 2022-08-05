@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 import './AppFooter.scss';
-import brandLogo from './brand-logo.svg';
+import brandLogo from './appBrandLogo.svg';
 
 import { AppNavLink } from './AppNavLink';
 

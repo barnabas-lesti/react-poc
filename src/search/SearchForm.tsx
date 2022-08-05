@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { useAppDispatch, useAppSelector } from '../store/hooks';
-import { setSearchString } from './search-state';
+
 
 import './SearchForm.scss';
+import { useAppDispatch, useAppSelector } from '../store/hooks';
 import { CommonTextInput } from '../common/CommonTextInput';
+import { setSearchString } from './searchState';
 
 interface SearchFormPropsInterface {
   onSubmit?: (searchString: string) => void;

@@ -2,10 +2,10 @@ import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import './SearchList.scss';
+import { useAppDispatch, useAppSelector } from '../store/hooks';
 import { CommonLoader } from '../common/CommonLoader';
 import { SearchListItem } from './SearchListItem';
-import { useAppDispatch, useAppSelector } from '../store/hooks';
-import { fetchItems } from './search-state';
+import { fetchItems } from './searchState';
 
 export function SearchList() {
   const { t } = useTranslation();

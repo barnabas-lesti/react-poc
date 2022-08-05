@@ -2,8 +2,8 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 import './AppHeader.scss';
-import brandLogo from './brand-logo.svg';
-import { openSidebar } from './app-state';
+import brandLogo from './appBrandLogo.svg';
+import { openSidebar } from './appState';
 import { useAppDispatch } from '../store/hooks';
 
 export function AppHeader() {

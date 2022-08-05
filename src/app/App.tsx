@@ -10,8 +10,8 @@ import './App.scss';
 import { AppHeader } from './AppHeader';
 import { AppFooter } from './AppFooter';
 import { AppMobileSidebar } from './AppMobileSidebar';
-import { appRoutes } from './app-routes';
-import { closeSidebar } from './app-state';
+import { appRoutes } from './appRoutes';
+import { closeSidebar } from './appState';
 import { useAppDispatch } from '../store/hooks';
 
 export function App() {

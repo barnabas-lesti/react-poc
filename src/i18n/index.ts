@@ -1,8 +1,17 @@
 import i18next from 'i18next';
 import { initReactI18next } from 'react-i18next';
 
-import { appI18n } from '../app/app-i18n';
-import { searchI18n } from '../search/search-i18n';
+import { appI18n } from '../app/appI18n';
+import { searchI18n } from '../search/searchI18n';
+
+export type AppTranslationType = {
+  en: {
+    [key: string]: string,
+  },
+  hu: {
+    [key: string]: string,
+  },
+}
 
 i18next
   .use(initReactI18next)
@@ -10,14 +19,14 @@ i18next
     resources: {
       en: {
         translation: {
-          app: appI18n.en,
-          search: searchI18n.en,
+          ...appI18n.en,
+          ...searchI18n.en,
         }
       },
       hu: {
         translation: {
-          app: appI18n.hu,
-          search: searchI18n.hu,
+          ...appI18n.hu,
+          ...searchI18n.hu,
         }
       },
     },
