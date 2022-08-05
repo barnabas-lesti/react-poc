@@ -7,16 +7,16 @@ import { NotFound } from '../not-found/NotFound';
 import { PrototypePage } from '../prototype/PrototypePage';
 import { SearchPage } from '../search/SearchPage';
 
-interface AppRoute {
+type AppRouteType = {
   path: string;
   Page: () => ReactElement;
 }
 
-export const appRoutes: Array<AppRoute> = [
+export const appRoutes: Array<AppRouteType> = [
   { path: '/',          Page: HomePage },
   { path: '/about-us',  Page: AboutUsPage },
   { path: '/search',    Page: SearchPage },
-  { path: '/item',      Page: ItemPage },
+  { path: '/item/:id',  Page: ItemPage },
   { path: '/prototype', Page: PrototypePage },
   { path: '*',          Page: NotFound },
 ];

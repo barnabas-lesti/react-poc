@@ -1,14 +1,16 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { AppDispatch, AppRootState } from '../store';
+import { SearchListItemInterface } from './SearchListItemInterface';
+import { searchListItemsMock } from './searchListItemsMock';
 
-interface SearchStateInterface {
+type SearchStateType = {
   searchString: string;
   isSearchInProgress: boolean;
-  items: Array<any>;
+  items: Array<SearchListItemInterface>;
 }
 
-const initialState: SearchStateInterface = {
+const initialState: SearchStateType = {
   searchString: '',
   isSearchInProgress: true,
   items: [],
@@ -27,7 +29,7 @@ const searchSlice = createSlice({
     stopLoading: (state) => {
       state.isSearchInProgress = false;
     },
-    setItems: (state, action: PayloadAction<Array<any>>) => {
+    setItems: (state, action: PayloadAction<Array<SearchListItemInterface>>) => {
       state.items = action.payload;
     },
   },
@@ -37,15 +39,10 @@ export const { setSearchString, startLoading, stopLoading, setItems } = searchSl
 export const searchReducer = searchSlice.reducer;
 
 export const fetchItems = () => async (dispatch: AppDispatch, getState: () => AppRootState) => {
-  const mockItems: any[] = [
-    { id: 1, name: 'lofasz' },
-    { id: 2, name: 'lofasz2' },
-  ];
-
   dispatch(startLoading());
-  const items = await new Promise<any>((resolve) => {
+  const items = await new Promise<Array<SearchListItemInterface>>((resolve) => {
     setTimeout(() => {
-      resolve(mockItems);
+      resolve(searchListItemsMock);
     }, 500);
   });
   dispatch(setItems(items));

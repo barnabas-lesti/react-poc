@@ -1,10 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-interface AppStateInterface {
+type AppStateType = {
   isSidebarOpen: boolean;
 }
 
-const initialState: AppStateInterface = {
+const initialState: AppStateType = {
   isSidebarOpen: false,
 };
 
