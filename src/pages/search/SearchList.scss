@@ -1,0 +1,11 @@
+.SearchList {
+  &__noItems {
+    text-align: center;
+  }
+
+  &__loaderContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

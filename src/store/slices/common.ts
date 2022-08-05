@@ -2,19 +2,13 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const getBody = () => document.getElementsByTagName('body')[0];
 
-interface CommonActionInterface {
-  payload: {
-    sidebarName: string;
-  }
-}
-
-export const commonSlice = createSlice({
+const commonSlice = createSlice({
   name: 'common',
   initialState: {
     openSidebarName: '',
   },
   reducers: {
-    openSidebar: (state, { payload }: CommonActionInterface) => {
+    openSidebar: (state, { payload }: { payload: { sidebarName: string } }) => {
       getBody().classList.add('no-scroll');
       state.openSidebarName = payload.sidebarName;
     },
@@ -25,6 +19,5 @@ export const commonSlice = createSlice({
   },
 });
 
-export const { openSidebar, closeSidebar } = commonSlice.actions;
-
+export const commonActions = commonSlice.actions;
 export const commonReducer = commonSlice.reducer;

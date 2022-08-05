@@ -5,6 +5,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Resources
 - https://v5.reactrouter.com/web/example/basic
 - https://react.i18next.com/guides/quick-start
+- https://fonts.google.com/icons?icon.set=Material+Icons
+- https://react-redux.js.org/introduction/getting-started
 
 ## Available Scripts
 

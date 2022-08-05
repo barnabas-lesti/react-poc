@@ -6,22 +6,37 @@
   box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.1);
   background-color: #ffffff;
   display: flex;
-  justify-content: space-between;
   align-items: center;
   padding: 1rem;
   font-size: 0;
 
-  &__mobileMenuIcon {
+  &__icon {
     font-size: 26px;
-  }
-
-  &__brand {
-    height: 26px;
+    color: #000000;
   }
 
   &__sidebarLink {
     font-size: 1rem;
     margin-bottom: 1rem;
     display: block;
+  }
+
+  &__brand {
+    height: 26px;
+    margin-left: 1rem;
+  }
+
+  &__controls {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__searchIconLink {
+    margin-right: .5rem;
+  }
+
+  &__searchForm {
+    margin-bottom: 1rem;
   }
 }

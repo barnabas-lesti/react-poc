@@ -12,6 +12,7 @@ interface AppNavLinkPropsInterface {
 
 export function AppNavLink({ to, labelKey, className }: AppNavLinkPropsInterface) {
   const { t } = useTranslation();
+
   return (
     <NavLink
       className={({ isActive }) => 'AppNavLink' + (className ? ` ${className}` : '') + (isActive ? ' AppNavLink--active': '')}

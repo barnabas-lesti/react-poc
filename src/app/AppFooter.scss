@@ -3,6 +3,7 @@
   padding: 1rem;
   display: flex;
   flex-direction: column;
+  flex-shrink: 0;
 
   &__brand {
     display: flex;

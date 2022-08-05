@@ -11,7 +11,7 @@ import './App.scss';
 import { AboutUsPage, HomePage, ItemPage, NotFound, PrototypePage, SearchPage } from '../pages';
 import { AppHeader } from './AppHeader';
 import { AppFooter } from './AppFooter';
-import { closeSidebar } from '../store/common';
+import { commonActions } from '../store/slices/common';
 
 export function App() {
   const location = useLocation()
@@ -20,7 +20,7 @@ export function App() {
   // Router navigation event listener
   useEffect(() => {
     window.scrollTo(0, 0);
-    dispatch(closeSidebar());
+    dispatch(commonActions.closeSidebar());
   }, [location, dispatch]);
 
   return (
