@@ -1,8 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
+import { httpApi } from '../common/httpApi';
 import { AppDispatch, AppRootState } from '../store';
 import { SearchListItemInterface } from './SearchListItemInterface';
-import { searchListItemsMock } from './searchListItemsMock';
 
 type SearchStateType = {
   searchString: string;
@@ -39,12 +39,11 @@ export const { setSearchString, startLoading, stopLoading, setItems } = searchSl
 export const searchReducer = searchSlice.reducer;
 
 export const fetchItems = () => async (dispatch: AppDispatch, getState: () => AppRootState) => {
+  const { search: { searchString } } = getState();
   dispatch(startLoading());
-  const items = await new Promise<Array<SearchListItemInterface>>((resolve) => {
-    setTimeout(() => {
-      resolve(searchListItemsMock);
-    }, 500);
-  });
+
+  const items = await httpApi.get<Array<SearchListItemInterface>>(`/search?searchString=${searchString}`)
+
   dispatch(setItems(items));
   dispatch(stopLoading());
 };

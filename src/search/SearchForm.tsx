@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
-
 import './SearchForm.scss';
 import { useAppDispatch, useAppSelector } from '../store/hooks';
-import { CommonTextInput } from '../common/CommonTextInput';
 import { setSearchString } from './searchState';
 
 interface SearchFormPropsInterface {
@@ -35,13 +33,23 @@ export function SearchForm({ onSubmit = () => {}, className }: SearchFormPropsIn
         handleSearch(inputValue);
       }}
     >
-      <CommonTextInput
-        icon='search'
-        value={inputValue}
-        disabled={isSearchInProgress}
-        onChange={(value) => setInputValue(value)}
-        onIconClick={(value) => handleSearch(value)}
-      />
+      <div className='SearchForm__inputContainer'>
+        <input
+          className='SearchForm__input'
+          type='text'
+          disabled={isSearchInProgress}
+          value={inputValue}
+          onChange={(({ target: { value }}) => {
+            setInputValue(value);
+          })}
+        />
+        <span
+            className='SearchForm__searchIcon material-icons'
+            onClick={() => !isSearchInProgress && handleSearch(inputValue)}
+        >
+          search
+        </span>
+      </div>
     </form>
   );
 }
