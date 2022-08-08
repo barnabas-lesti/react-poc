@@ -1,20 +1,14 @@
 import { configureStore } from '@reduxjs/toolkit'
-import { commonReducer } from './common';
 
-import { counterReducer } from './counter';
-
-export interface StateInterface {
-  common: {
-    openSidebarName: string;
-  },
-  counter: {
-    value: number;
-  };
-}
+import { appReducer } from '../app/appState';
+import { searchReducer } from '../search/searchState';
 
 export const store = configureStore({
   reducer: {
-    common: commonReducer,
-    counter: counterReducer,
+    app: appReducer,
+    search: searchReducer,
   },
 });
+
+export type AppRootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;

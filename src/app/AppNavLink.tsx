@@ -4,14 +4,15 @@ import { useTranslation } from 'react-i18next';
 
 import './AppNavLink.scss';
 
-interface AppNavLinkPropsInterface {
+type AppNavLinkPropsType = {
   to: string,
   labelKey: string,
   className? : string;
 }
 
-export function AppNavLink({ to, labelKey, className }: AppNavLinkPropsInterface) {
+export function AppNavLink({ to, labelKey, className }: AppNavLinkPropsType) {
   const { t } = useTranslation();
+
   return (
     <NavLink
       className={({ isActive }) => 'AppNavLink' + (className ? ` ${className}` : '') + (isActive ? ' AppNavLink--active': '')}

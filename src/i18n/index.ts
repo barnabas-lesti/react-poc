@@ -1,23 +1,36 @@
 import i18next from 'i18next';
 import { initReactI18next } from 'react-i18next';
 
-import { en } from './en';
-import { hu } from './hu';
+import { appI18n } from '../app/appI18n';
+import { searchI18n } from '../search/searchI18n';
 
-export const languages = {
-  DEFAULT_LANGUAGE: 'en',
-  EN: 'en',
-  HU: 'hu',
-};
+export type AppTranslationType = {
+  en: {
+    [key: string]: string,
+  },
+  hu: {
+    [key: string]: string,
+  },
+}
 
 i18next
   .use(initReactI18next)
   .init({
     resources: {
-      en,
-      hu,
+      en: {
+        translation: {
+          ...appI18n.en,
+          ...searchI18n.en,
+        }
+      },
+      hu: {
+        translation: {
+          ...appI18n.hu,
+          ...searchI18n.hu,
+        }
+      },
     },
-    lng: languages.DEFAULT_LANGUAGE,
+    lng: 'en',
     interpolation: {
       escapeValue: false,
     },
